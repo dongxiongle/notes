@@ -108,14 +108,73 @@ const Clock: ClockConstructor = class Clock implements ClockInterface {
 }
 // 继承接口
 // 和类一样，接口也可以相互继承。
-interface Shape{
-  color: string;
+// interface Shape{
+//   color: string;
+// }
+
+// interface Square extends Shape {
+//   sideLength: number;
+// }
+
+// let square = <Square>{};
+// square.color = 'blue';
+// square.sideLength = 10;
+
+// 一个接口可以继承多个接口，创建出多个接口的合成接口
+// interface Shape {
+//   color: string;
+// }
+
+// interface PenStroke {
+//   penWidth: number;
+// }
+
+// interface Square extends Shape, PenStroke {
+//   sideLength: number;
+// }
+
+// let square = <Square>{};
+// square.color = 'blue';
+// square.penWidth = 5.0;
+// square.sideLength = 10;
+
+// 混合类型，一个对象可以同时作为函数和对象使用，并带有额外的属性
+// interface Counter {
+//   (start: number): string;
+//   interval: number;
+//   reset(): void;
+// }
+
+// function getCounter(): Counter {
+//   let counter = <Counter>function(start: number): string {
+//     return '';
+//   }
+//   counter.interval = 123;
+//   conter.reset = function() {};
+//   return counter;
+// }
+// let c = getCounter();
+// c(10);
+// 接口继承类
+// 当接口继承了一个类类型时，它会继承类的成员但不包括其实现。就好像接口声明了所以类中存在的成员，但并没用提供具体实现一样。接口同样会继承到类的 private 和 protected 成员。这意味着当你创建一个接口继承了一个拥有私有或受保护的成员的类时，这个接口类型只能被这个类或其子类所实现（implement）。
+class Control {
+  private state: any;
 }
 
-interface Square extends Shape {
-  sideLength: number;
+interface SelectableControl extends Control {
+  select(): void;
 }
 
-let square = <Square>{};
-square.color = 'blue';
-square.sideLength = 10;
+class Button extends Control implements SelectableControl {
+  select() {}
+}
+
+class Textbox extends Control {
+  select() {}
+}
+
+class Image1 extends Control implements SelectableControl {
+  select(){}
+}
+
+// 因为 state 是私有成员，所以只能够是 Control 的子类才能实现 SelectableControl 接口。因为只有 Control 的子类才能够拥有一个声明于 Control 的私有成员 state
