@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        html,
+        body {margin: 0;padding: 0;width: 750px;background: #FFFFFF;}
+        p{margin:0;padding:0;}
+        .moreInfo {margin-left: 26px;}
+        .download {margin-left: 2px;}
+        .top{height:242px;padding-top:156px;padding-left:86px;box-sizing:border-box;background: url('${paperBanner}') no-repeat top;background-size: contain;}
+        .showTime {padding: 0px;margin: 0px;font-family: AliHYAiHei-Beta;font-size: 26px;color: #666666;text-align: left;line-height: 36px;}
+        .item{margin-top:30px;}
+        .itemTitle{font-family: AliHYAiHei-Beta;font-size: 40px;line-height: 54px;color: #000000;margin-bottom:8px;}
+        .itemBor{width:10px;height:40px;background:#ff55ae;display:inline-block;vertical-align:middle;}
+        .itemTinfo{vertical-align:middle;display:inline-block;}
+        .itemCon{font-family: "PingFang SC Medium";font-size: 36px;text-align: left;line-height: 50px;padding:0;margin:0;color:#000000;}
+        .index{width:40px;float:left;overflow:hidden;padding:0px;margin:0px;}
+        .itemContentInfo{width:650px;float:left;overflow:hidden;padding:0px;margin:0px;}
+        .clearfix:after {content: "";display: block;visibility: hidden;clear: both;}
+        .clearfix {zoom: 1;}
+        #showContent{margin:0 auto;padding:0 28px;width:694px;min-height:610px;}
+        .footer{width: 650px;margin: 36px auto 0px;padding-bottom: 22px;overflow:hidden;}
+        .footerLeft{width:458px;margin-top:12px;float:left;}
+        .footerRight{width:160px;float:right;}
+        .rightBorder{width: 160px;height: 160px;border: 4px solid #ffffff;background: #ffffff;box-sizing: border-box;}
+        .info {margin-top: 10px;color: #666666;font-size: 16px;line-height: 22px;}
+    </style>
+</head>
+
+<body>
+    <div class="top">
+            <p class="showTime">
+                <span id="day">${day}</span>
+                <span style="margin-left:20px;" id="time">${time}</span>
+            </p>
+        </div>
+        <div id="showContent">
+            <c:forEach items="${content}" var="ele">
+                <div class="item">
+                    <div class="itemTitle">
+                        <span class="itemBor"></span>
+                        <span class="itemTinfo">${ele.title}</span>
+                    </div>
+                    <c:forEach items="${ele.content}" var="show" varStatus="status">
+                        <div class="itemCon clearfix">
+                            <p class="index">${status.count}.</p>
+                            <p class="itemContentInfo">${show}</p>
+                        </div>
+                    </c:forEach>
+                </div>
+            </c:forEach>
+        </div>
+    </div>
+    <div class="footer">
+        <div class="footerLeft">
+            <img src="${paperFooter}" alt="" style="display: block;width: 458px;margin: 0 auto;">
+        </div>
+        <div class="footerRight">
+            <div class="rightBorder">
+                <img src="${qrcodeUrl}" style="display:block;width:100%;" id="qrCode">
+            </div>
+            <div class="info">
+                <p style="float:left;">欲知详情,</p>
+                <p style="float:right;">请扫二维码</p>
+            </div>
+        </div>
+    </div>
+</body>
+</script>
+</html>
