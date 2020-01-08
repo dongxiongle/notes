@@ -4,6 +4,8 @@
     "removeComments": true
   },
   "files": [
-    "class.ts"
+    "class.ts",
+    "1.ts",
+    "interface.ts"
   ]
 }
