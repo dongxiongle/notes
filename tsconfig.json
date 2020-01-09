@@ -4,8 +4,10 @@
     "removeComments": true
   },
   "files": [
-    "class.ts",
-    "1.ts",
-    "interface.ts"
+    // "class.ts",
+    // "1.ts",
+    // "interface1.ts",
+    // "func.ts",
+    "generic.ts"
   ]
 }
