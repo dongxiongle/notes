@@ -8,6 +8,7 @@
     // "1.ts",
     // "interface1.ts",
     // "func.ts",
-    "generic.ts"
+    // "generic.ts",
+    "moreTypes.ts"
   ]
 }
