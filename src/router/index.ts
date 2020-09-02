@@ -22,6 +22,11 @@ const routes: Array<RouteConfig> = [
     path: '/intersection',
     name: 'intersection',
     component: () => import('../views/intersectionObserve.vue')
+  },
+  {
+    path: '/pullRefresh',
+    name: 'pullRefresh',
+    component: () => import('@/views/pullRefresh.vue')
   }
 ]
 

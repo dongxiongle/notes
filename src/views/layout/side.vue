@@ -12,6 +12,9 @@
         <li>
           <router-link to="/intersection">Intersection</router-link>
         </li>
+        <li>
+          <router-link to="/pullRefresh">pullRefresh</router-link>
+        </li>
       </ul>
     </transition>
   </div>
